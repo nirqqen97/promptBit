@@ -1,9 +1,10 @@
 "use client";
-import { CldImage, CldUploadWidget } from "next-cloudinary";
-import { useToast } from "../ui/use-toast";
-import Image from "next/image";
+
+import { useToast } from "@/components/ui/use-toast";
 import { dataUrl, getImageSize } from "@/lib/utils";
+import { CldImage, CldUploadWidget } from "next-cloudinary";
 import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
+import Image from "next/image";
 
 type MediaUploaderProps = {
   onValueChange: (value: string) => void;
@@ -19,7 +20,7 @@ const MediaUploader = ({
   image,
   publicId,
   type,
-}): MediaUploaderProps => {
+}: MediaUploaderProps) => {
   const { toast } = useToast();
 
   const onUploadSuccessHandler = (result: any) => {
@@ -43,15 +44,16 @@ const MediaUploader = ({
 
   const onUploadErrorHandler = () => {
     toast({
-      title: "something went wrong while uploading",
+      title: "Something went wrong while uploading",
       description: "Please try again",
       duration: 5000,
       className: "error-toast",
     });
   };
+
   return (
     <CldUploadWidget
-      uploadPreset="imagine"
+      uploadPreset="jsm_imaginify"
       options={{
         multiple: false,
         resourceType: "image",
