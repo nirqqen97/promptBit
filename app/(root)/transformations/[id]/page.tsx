@@ -80,7 +80,6 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
             isTransforming={false}
             transformationConfig={image.config}
             hasDownload={true}
-            setIsTransforming={undefined} // Явно указываем, что этот пропс не используется
           />
         </div>
 
